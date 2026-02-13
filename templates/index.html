@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Iris Classification</title>
+    <title>Iris Classifier</title>
 </head>
 <body>
+    <h2>Iris Flower Prediction</h2>
 
-    <h2>Iris Flower Classification</h2>
-
-    <form action="/predict" method="post">
+    <form action="predict-ui" method="post">
         <input type="text" name="sepal_length" placeholder="Sepal Length" required><br><br>
         <input type="text" name="sepal_width" placeholder="Sepal Width" required><br><br>
         <input type="text" name="petal_length" placeholder="Petal Length" required><br><br>
@@ -16,7 +15,8 @@
         <button type="submit">Predict</button>
     </form>
 
-    <h3>{{ prediction_text }}</h3>
-
+    {% if prediction %}
+        <h3>Prediction: {{ prediction }}</h3>
+    {% endif %}
 </body>
 </html>

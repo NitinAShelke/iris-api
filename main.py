@@ -27,7 +27,9 @@ def predict_ui(
     petal_width: float = Form(...)
 ):
     input_data = [[sepal_length, sepal_width, petal_length, petal_width]]
-    prediction = model.predict(input_data)[0]
+   
+    prediction_index = model.predict(input_data)[0]
+    prediction = classes[prediction_index]
 
     return templates.TemplateResponse("index.html", {
         "request": request,
